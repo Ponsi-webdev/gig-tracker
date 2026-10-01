@@ -1,0 +1,19 @@
+GIG TRACKER - DEPLOY IN 3 MINUTES (FREE)
+
+Option A - Netlify (easiest, no account setup tools)
+1. Go to app.netlify.com/drop and sign in (free).
+2. Drag the whole "gig-tracker-app" FOLDER (unzipped) onto the page.
+3. Copy the link it gives you (https://something.netlify.app).
+
+Option B - Vercel
+1. Put these files in a GitHub repo, import it on vercel.com, click Deploy.
+
+INSTALL ON YOUR PHONE
+- Android (Chrome): open your link, tap the 3-dot menu, then "Install app" / "Add to Home screen".
+- iPhone (Safari): open your link, tap Share, then "Add to Home Screen".
+
+KEEP YOUR OLD LEADS
+In the old version: Stats > Copy backup. In the new app: Stats > Restore backup > paste.
+
+ANDROID APK (optional, later)
+Go to pwabuilder.com, paste your link, choose Android, download the package.
