@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gig Tracker - lead and gig tracker for freelancers</title>
+<meta name="description" content="Gig Tracker helps freelancers and small sellers in Uganda track leads, follow up on WhatsApp, win gigs and get paid."><meta property="og:title" content="Gig Tracker"><meta property="og:description" content="Turn conversations into customers, and customers into money."><meta property="og:image" content="icon-512.png"><meta property="og:type" content="website">
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0D2440"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Gig Tracker">
+<style>
+:root{--bg:#E7F0FA;--card:#fff;--tx:#0D2440;--mu:#4a6585;--ac:#2E5E99;--soft:#7BA4D0;--on:#fff;--bd:#c3d5ea;--wa:#17a34a;--bad:#b3402f;--sf:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0a1b30;--card:#0f2a48;--tx:#E7F0FA;--mu:#8fb0d3;--ac:#7BA4D0;--soft:#2E5E99;--on:#0D2440;--bd:#1f4268;--wa:#35c46a;--bad:#e5806f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#app{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 12px) 12px calc(84px + var(--sf))}
+h1{font-size:20px;margin:4px 0 10px}h2{font-size:15px;margin:16px 0 8px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin:8px 0;box-shadow:0 1px 3px rgba(10,50,80,.06)}
+.r{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:6px}.r:first-child{margin-top:0}
+.m{color:var(--mu);font-size:13px;word-break:break-word}
+.tag{font-size:12px;border:1px solid var(--bd);border-radius:20px;padding:1px 9px;color:var(--mu);white-space:nowrap}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:11px;width:100%}
+textarea{min-height:84px}label{display:block;font-size:13px;color:var(--mu);margin:10px 0 4px}
+button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:11px 14px;min-height:44px}
+button.a{background:var(--ac);border-color:var(--ac);color:var(--on);font-weight:600;width:100%;margin-top:10px}
+button.p{background:var(--wa);border-color:var(--wa);color:#fff;font-weight:600}
+button.d{color:var(--bad)}
+.q{display:grid;grid-template-columns:1fr 1fr;gap:8px}.q button{font-weight:600}
+.big{font-size:20px;font-weight:700}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}.chips button{white-space:nowrap;min-height:38px;padding:6px 12px}.chips .on{background:var(--ac);color:var(--on);border-color:var(--ac)}
+.pl{display:flex;gap:8px;overflow-x:auto}.pl .c{min-width:118px;margin:0}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);display:flex;padding-bottom:var(--sf);z-index:5}
+nav button{flex:1;border:0;border-radius:0;background:none;font-size:13px;color:var(--mu);min-height:56px}nav .on{color:var(--ac);font-weight:700}
+#sh{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:9;align-items:flex-end;justify-content:center}
+#sh>div{background:var(--bg);width:100%;max-width:560px;max-height:92%;overflow:auto;border-radius:16px 16px 0 0;padding:14px 14px calc(18px + var(--sf))}
+#t{position:fixed;left:12px;right:12px;bottom:calc(76px + var(--sf));background:var(--tx);color:var(--bg);padding:11px;border-radius:10px;display:none;z-index:20;text-align:center}
+.tl{border-left:2px solid var(--bd);margin:8px 0 0 6px;padding-left:12px}.tl div{margin:0 0 9px}.e{color:var(--mu);padding:12px 2px}
+.logo{width:72px;height:72px;border-radius:16px;display:block;margin:30px auto 8px}
+.ti{width:38px;height:38px;border-radius:11px;display:inline-grid;place-items:center;color:#fff;flex:none;font-weight:700;box-shadow:0 2px 6px rgba(13,36,64,.18)}
+.t1{background:linear-gradient(145deg,#3d73b8,#0D2440)}.t2{background:linear-gradient(145deg,#27c76f,#0d8f48)}.t3{background:linear-gradient(145deg,#8a5cff,#4b2bd1)}.t4{background:linear-gradient(145deg,#ffc21a,#ff8a00)}.t5{background:linear-gradient(145deg,#4f9bff,#1f5fd6)}
+.row{display:flex;gap:12px;align-items:center}.row>div{min-width:0}
+nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px}
+button.qb,button.ib{display:flex;align-items:center;justify-content:center;gap:8px}button.qb{margin:0}
+.mi{cursor:pointer}.mi b{display:block}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+</style></head><body>
+<div id="app"></div><div id="sh"></div><div id="t"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const sb=supabase.createClient('https://jgfiukzwnvjrmimhuddd.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnZml1a3p3bnZqcm1pbWh1ZGRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4ODYxNTAsImV4cCI6MjEwNjQ2MjE1MH0.SwvngFL0AzNuPzrNG_JAWpzvxqyDXb239ZZ4CMFXgUU');
+const STG=[['new_lead','New Lead'],['contacted','Contacted'],['interested','Interested'],['quote_sent','Quote Sent'],['negotiating','Negotiating'],['won','Won'],['lost','Lost']];
+const SN=Object.fromEntries(STG),ACT=['new_lead','contacted','interested','quote_sent','negotiating'];
+const SRC=['WhatsApp','Upwork','Instagram','Facebook','TikTok','Referral','Website','Walk-in','Phone','Other'];
+const LOST=['Price','Competitor','No response','Client cancelled','Delayed decision','Not qualified','Other'];
+let recov=false,U=null,B=null,CL=[],GG=[],AC=[],tab='home',gf='active',uid=null;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const day=(n=0)=>{const d=new Date();d.setDate(d.getDate()+n);return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const fmt=n=>(B&&B.currency||'UGX')+' '+Math.round(+n||0).toLocaleString('en-US');
+const CC={UGX:'256',KES:'254',TZS:'255',RWF:'250'};
+const norm=p=>{p=(p||'').replace(/\D/g,'');const cc=CC[B&&B.currency]||'256';if(p[0]=='0')p=cc+p.slice(1);else if(p.length<=9)p=cc+p;return p};
+const cl=id=>CL.find(c=>c.id==id),gg=id=>GG.find(g=>g.id==id);
+const cn=g=>{const c=cl(g.client_id);return c?c.name:'No client'};
+const v=id=>($('#'+id)||{}).value||'';
+const I={
+home:'<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/>',
+gigs:'<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"/><path d="M3 12.5h18"/>',
+users:'<circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.4-3.3 3-5.2 6-5.2s5.6 1.9 6 5.2"/><path d="M16 5.6a3 3 0 0 1 0 5.8"/><path d="M18 14.6c1.8.6 3 2.2 3.2 4.9"/>',
+more:'<circle cx="5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="19" cy="12" r="1.7" fill="currentColor"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',
+chat:'<path d="M4 19.5 5.3 15A8 8 0 1 1 9 18.7z"/>',
+target:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',
+bolt:'<path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/>',
+doc:'<path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M14 3.5V8h4M9 13h6M9 16.5h6"/>',
+clip:'<rect x="6" y="5" width="12" height="16" rx="2"/><path d="M9 5V4h6v1M9.5 11h5M9.5 15h5"/>',
+store:'<path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 12.5V20h13v-7.5"/>',
+info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8v.2"/>',
+out:'<path d="M10 4H6a1.5 1.5 0 0 0-1.5 1.5v13A1.5 1.5 0 0 0 6 20h4"/><path d="M15 8l4 4-4 4M19 12H9"/>',
+bars:'<path d="M5 20V10M12 20V4M19 20v-7"/>',
+spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>'};
+const ic=(n,z=22)=>`<svg viewBox="0 0 24 24" width="${z}" height="${z}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[n]}</svg>`;
+const tile=(n,c)=>`<span class="ti ${c}">${ic(n,20)}</span>`;
+const mrow=(i,c,t,sub,fn)=>`<div class="c row mi" onclick="${fn}">${tile(i,c)}<div style="flex:1"><b>${t}</b><div class="m">${sub}</div></div></div>`;
+function toast(m){const t=$('#t');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',2800)}
+function sheet(h){const s=$('#sh');s.innerHTML='<div>'+h+'</div>';s.style.display='flex';s.onclick=e=>{if(e.target===s)closeS()}}
+function closeS(){$('#sh').style.display='none';$('#sh').innerHTML=''}
+async function ok(p){const r=await p;if(r.error){toast(r.error.message);throw r.error}return r.data}
+async function log(gid,cid,kind,note){try{await ok(sb.from('activities').insert({gig_id:gid,client_id:cid,kind,note}))}catch(e){}}
+
+/* ---------- auth + boot ---------- */
+function authView(mode){
+ $('#app').innerHTML=`<img class="logo" src="icon-192.png" alt=""><h1 style="text-align:center">Gig Tracker</h1><p class="m" style="text-align:center">Turn conversations into customers, and customers into money.</p>
+ <label>Email</label><input id="em" type="email" autocomplete="email"><label>Password (6+ characters)</label><input id="pw" type="password" autocomplete="${mode=='up'?'new-password':'current-password'}">
+ <button class="a" onclick="doAuth('${mode}')">${mode=='up'?'Create account':'Sign in'}</button>
+ ${mode=='in'?'<p class="m" style="text-align:center"><a href="#" onclick="forgot();return false">Forgot password?</a></p>':''}<p class="m" style="text-align:center">${mode=='up'?'Have an account?':'New here?'} <a href="#" onclick="authView('${mode=='up'?'in':'up'}');return false">${mode=='up'?'Sign in':'Create account'}</a></p>`}
+async function doAuth(mode){const e=v('em').trim(),p=v('pw');if(!e||p.length<6)return toast('Enter your email and a password of 6+ characters.');
+ const r=mode=='up'?await sb.auth.signUp({email:e,password:p}):await sb.auth.signInWithPassword({email:e,password:p});
+ if(r.error)return toast(r.error.message);if(mode=='up'&&!r.data.session)toast('Check your email to confirm, then sign in.')}
+sb.auth.onAuthStateChange((ev,s)=>{if(ev=='PASSWORD_RECOVERY'){recov=true;recoveryView();return}if(ev=='TOKEN_REFRESHED')return;const id=s&&s.user?s.user.id:null;if(id===uid&&ev!='SIGNED_IN')return;uid=id;U=s?s.user:null;setTimeout(boot,0)});
+async function boot(){if(!U){B=null;CL=[];GG=[];AC=[];return authView('in')}
+ $('#app').innerHTML='<p class="e">Loading…</p>';
+ try{const[b,c,g,a]=await Promise.all([ok(sb.from('businesses').select('*').maybeSingle()),ok(sb.from('clients').select('*').order('name')),ok(sb.from('gigs').select('*').order('created_at',{ascending:false})),ok(sb.from('activities').select('*').order('created_at',{ascending:false}).limit(600))]);
+  B=b;CL=c;GG=g;AC=a}catch(e){return $('#app').innerHTML='<p class="e">Could not load your data. Check your connection.</p><button class="a" onclick="boot()">Try again</button>'}
+ if(recov)return recoveryView();B?render():onboard()}
+function onboard(){$('#app').innerHTML=`<h1>Welcome to Gig Tracker</h1><p class="m">Four quick questions, then add your first gig.</p>
+ <label>What's your business?</label><input id="ob1" placeholder="Web design, photography, shop…"><label>What do you sell?</label><input id="ob2" placeholder="Websites, photo shoots, clothes…">
+ <label>Your name or business name</label><input id="ob3"><label>WhatsApp number</label><input id="ob4" inputmode="tel" placeholder="07…"><label>Currency</label><select id="ob5"><option>UGX</option><option>KES</option><option>TZS</option><option>RWF</option><option>USD</option></select>
+ <button class="a" onclick="saveOb()">Continue</button>`}
+async function saveOb(){if(!v('ob3').trim())return toast('Enter your name or business name.');
+ try{B=await ok(sb.from('businesses').insert({name:v('ob3').trim(),business_type:v('ob1').trim(),offering:v('ob2').trim(),whatsapp:v('ob4').trim(),phone:v('ob4').trim(),currency:v('ob5')}).select().single())}catch(e){return}
+ render();newGig(true)}
+
+/* ---------- shell ---------- */
+function render(){if(recov)return recoveryView();const T=[['home','Home','home'],['gigs','Gigs','gigs'],['clients','Clients','users'],['more','More','more']];
+ const body={home:homeV,gigs:gigsV,clients:clientsV,more:moreV}[tab]();
+ $('#app').innerHTML=body+`<nav>${T.map(([k,n,i])=>`<button class="${tab==k?'on':''}" onclick="tab='${k}';render();scrollTo(0,0)">${ic(i,22)}<span>${n}</span></button>`).join('')}</nav>`}
+function card(g){const due=g.next_follow_up&&g.next_follow_up<=day()&&ACT.includes(g.stage);
+ return `<div class="c" onclick="openGig('${g.id}')"><div class="r"><b>${esc(g.title)}</b><span class="tag">${g.lead_source=='Upwork'?'Upwork · ':''}${SN[g.stage]}</span></div>
+ <div class="m">${esc(cn(g))} · ${fmt(g.value)}</div>${g.next_follow_up?`<div class="m" style="${due?'color:var(--bad);font-weight:600':''}">${due?'Follow up due: ':'Follow up: '}${g.next_follow_up}${g.next_action?' · '+esc(g.next_action):''}</div>`:''}</div>`}
+
+/* ---------- home ---------- */
+function best(){const t=day(),L=[];
+ GG.forEach(g=>{if(ACT.includes(g.stage)){
+  if(g.next_follow_up&&g.next_follow_up<=t)L.push({g,s:2e9+ +g.value,x:`Follow up with ${cn(g)}`});
+  else if(g.stage=='quote_sent'&&(Date.now()-new Date(g.updated_at))/864e5>=3)L.push({g,s:1e9+ +g.value,x:`Chase the quote for ${cn(g)}`});
+  else if(g.stage=='new_lead'&&!g.next_follow_up)L.push({g,s:+g.value,x:`Contact ${cn(g)}`})}
+  if(g.stage=='won'&&g.deadline&&g.deadline<=t)L.push({g,s:3e9,x:`Deliver ${g.title}, deadline ${g.deadline==t?'today':g.deadline}`})});
+ return L.sort((a,b)=>b.s-a.s).slice(0,6)}
+function homeV(){const act=GG.filter(g=>ACT.includes(g.stage)),pv=act.reduce((a,g)=>a+ +g.value,0),won=GG.filter(g=>g.stage=='won'),bs=best();
+ return `<h1>Hi ${esc(B.name)}</h1>
+ <div class="q"><button class="a qb" onclick="newGig()">${ic('plus',18)} New Gig</button><button class="a qb" onclick="newClient()">${ic('users',18)} New Client</button></div>
+ ${outreach()}<h2>Today's best actions</h2>${bs.map(o=>`<div class="c row" onclick="openGig('${o.g.id}')">${tile('bolt','t4')}<div style="flex:1"><b>${esc(o.x)}</b><div class="m">${esc(o.g.title)} · ${fmt(o.g.value)}</div></div></div>`).join('')||'<div class="c e">Nothing urgent. Add a gig or set follow-up dates to see your best actions here.</div>'}
+ <h2>Pipeline</h2><div class="m">${act.length} open gigs worth ${fmt(pv)} · ${won.length} won worth ${fmt(won.reduce((a,g)=>a+ +g.value,0))}</div>
+ <div class="pl" style="margin-top:8px">${STG.slice(0,6).map(([k,n])=>{const x=GG.filter(g=>g.stage==k);return `<div class="c" onclick="gf='${k}';tab='gigs';render()"><div class="m">${n}</div><div class="big">${x.length}</div><div class="m">${fmt(x.reduce((a,g)=>a+ +g.value,0))}</div></div>`}).join('')}</div>`}
+
+/* ---------- gigs ---------- */
+function gigsV(){const f=GG.filter(g=>gf=='all'||(gf=='active'?ACT.includes(g.stage):g.stage==gf));
+ return `<h1>Gigs</h1><div class="chips">${[['active','Open'],...STG,['all','All']].map(([k,n])=>`<button class="${gf==k?'on':''}" onclick="gf='${k}';render()">${n}</button>`).join('')}</div>
+ ${f.map(card).join('')||'<div class="c e"><b>Your first gig is waiting.</b><br>Track your first customer opportunity and start building your pipeline.</div>'}<button class="a" onclick="newGig()">+ New Gig</button><button class="a" style="background:none;color:var(--ac);border-color:var(--bd)" onclick="bulkSheet()">Paste many leads</button>`}
+function opts(a,sel){return a.map(x=>`<option ${x==sel?'selected':''}>${esc(x)}</option>`).join('')}
+function newGig(first){sheet(`<h1>${first?"Let's track your first gig":'New gig'}</h1>
+ <label>Gig title</label><input id="g1" placeholder="Business website"><label>Client</label><select id="g2"><option value="">New client…</option>${CL.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('')}</select>
+ <input id="g3" placeholder="New client name" style="margin-top:6px"><label>Client WhatsApp (07…)</label><input id="g4" inputmode="tel">
+ <label>Value (${esc(B.currency)})</label><input id="g5" inputmode="numeric"><label>Lead source</label><select id="g6">${opts(SRC)}</select>
+ <label>Job link (for Upwork or other jobs)</label><input id="g8" placeholder="https://…"><label>Follow up on</label><input id="g7" type="date" value="${day(2)}"><button class="a" onclick="saveNewGig()">Save gig</button><button class="a" style="background:none;color:var(--mu);border-color:var(--bd)" onclick="closeS()">Cancel</button>`)}
+async function saveNewGig(){const t=v('g1').trim();if(!t)return toast('Enter a gig title.');let cid=v('g2')||null;
+ try{if(!cid){const n=v('g3').trim();if(n){const c=await ok(sb.from('clients').insert({name:n,whatsapp:v('g4').trim(),phone:v('g4').trim()}).select().single());CL.push(c);cid=c.id}}
+ const g=await ok(sb.from('gigs').insert({title:t,client_id:cid,value:parseFloat(v('g5').replace(/[^\d.]/g,''))||0,lead_source:v('g6'),link:v('g8').trim()||null,next_follow_up:v('g7')||null,next_action:'Follow up'}).select().single());
+ GG.unshift(g);await log(g.id,cid,'created','Lead created');await refreshAct();closeS();tab='gigs';gf='active';render();toast('Gig saved')}catch(e){}}
+async function refreshAct(){try{AC=await ok(sb.from('activities').select('*').order('created_at',{ascending:false}).limit(600))}catch(e){}}
+function msgFor(g){const c=cl(g.client_id),n=c?c.name.split(' ')[0]:'there',me=B.name;
+ if(g.stage=='quote_sent')return `Hi ${n}, just checking in regarding the quote for ${g.title}. Please let me know if you'd like me to clarify anything. - ${me}`;
+ if(g.stage=='won')return `Hi ${n}, thank you for choosing me for ${g.title}. I'll keep you updated on progress. - ${me}`;
+ return `Hi ${n}, this is ${me}. I'm following up on ${g.title}. Would you like to go ahead or do you have any questions?`}
+function openGig(id){const g=gg(id),c=cl(g.client_id),h=AC.filter(a=>a.gig_id==id),up=g.lead_source=='Upwork';
+ sheet(`<div class="r"><h1 style="margin:0">${esc(g.title)}</h1><button onclick="closeS()">Close</button></div><div class="m">${esc(cn(g))} · ${fmt(g.value)}</div>
+ <label>Stage</label><select id="d0" onchange="moveStage('${id}',this.value)">${STG.map(([k,n])=>`<option value="${k}" ${k==g.stage?'selected':''}>${n}</option>`).join('')}</select>
+ ${g.lost_reason?`<div class="m">Lost because: ${esc(g.lost_reason)}</div>`:''}
+ <label>Title</label><input id="d1" value="${esc(g.title)}"><label>Value</label><input id="d2" inputmode="numeric" value="${g.value}">
+ <label>Next action</label><input id="d3" value="${esc(g.next_action||'')}"><label>Follow up on</label><input id="d4" type="date" value="${g.next_follow_up||''}">
+ <label>Deadline</label><input id="d5" type="date" value="${g.deadline||''}"><label>Lead source</label><select id="d6">${opts(SRC,g.lead_source)}</select>
+ <label>Job link</label><input id="d10" value="${esc(g.link||'')}"><label>Notes</label><textarea id="d7">${esc(g.notes||'')}</textarea><button class="a" onclick="saveGig('${id}')">Save changes</button>
+ ${up?`<h2>Proposal</h2>${/^https?:\/\//i.test(g.link||'')?`<div class="m"><a href="${esc(g.link)}" target="_blank" rel="noopener">Open job link</a></div>`:''}<textarea id="d8">${esc(propFor(g))}</textarea><button class="a ib" onclick="copyProp('${id}')">${ic('doc',18)} Copy proposal</button><button class="a" style="background:none;color:var(--ac);border-color:var(--bd)" onclick="editProp()">Edit my proposal template</button>`:`<h2>Message ${esc(c?c.name:'client')}</h2><textarea id="d8">${esc(msgFor(g))}</textarea><button class="a ib" style="background:var(--wa);border-color:var(--wa);color:#fff" onclick="waGig('${id}')">${ic('chat',18)} Open WhatsApp</button>`}
+ <h2>Timeline</h2><div class="r" style="margin:0"><input id="d9" placeholder="Add a note" style="flex:1"><button onclick="addNote('${id}')">Add</button></div>
+ <div class="tl" style="margin-top:12px">${h.map(a=>`<div><b>${esc(a.note||a.kind)}</b><div class="m">${new Date(a.created_at).toLocaleDateString()}</div></div>`).join('')||'<div class="m">No activity yet.</div>'}</div>
+ <button class="a d" style="background:none" onclick="delGig('${id}')">Delete gig</button>`)}
+async function upGig(id,p,kind,note){try{const g=await ok(sb.from('gigs').update(p).eq('id',id).select().single());GG=GG.map(x=>x.id==id?g:x);if(kind){await log(id,g.client_id,kind,note);await refreshAct()}return g}catch(e){}}
+async function moveStage(id,s){if(s=='lost'){return sheet(`<h1>Why was it lost?</h1><select id="lr">${opts(LOST)}</select><button class="a" onclick="confirmLost('${id}')">Mark as lost</button><button class="a" style="background:none;color:var(--mu);border-color:var(--bd)" onclick="openGig('${id}')">Cancel</button>`)}
+ const p={stage:s,lost_reason:null};if(['contacted','interested','quote_sent','negotiating'].includes(s))p.last_contact_date=day();const g=await upGig(id,p,'stage','Moved to '+SN[s]);if(g){render();openGig(id)}}
+async function confirmLost(id){const g=await upGig(id,{stage:'lost',lost_reason:v('lr'),next_follow_up:null},'stage','Marked lost: '+v('lr'));if(g){closeS();render()}}
+async function saveGig(id){const o=gg(id),np=v('d4')||null,p={title:v('d1').trim()||o.title,value:parseFloat(v('d2').replace(/[^\d.]/g,''))||0,next_action:v('d3'),next_follow_up:np,deadline:v('d5')||null,lead_source:v('d6'),link:v('d10').trim()||null,notes:v('d7')};
+ const g=await upGig(id,p,np!=o.next_follow_up&&np?'followup':null,'Follow-up set for '+np);if(g){closeS();render();toast('Saved')}}
+async function addNote(id){const n=v('d9').trim();if(!n)return;await log(id,gg(id).client_id,'note',n);await refreshAct();openGig(id)}
+async function waGig(id){const g=gg(id),c=cl(g.client_id),p=norm(c&&(c.whatsapp||c.phone));if(!p)return toast('Add a WhatsApp number to this client first.');
+ window.open('https://wa.me/'+p+'?text='+encodeURIComponent(v('d8')),'_blank');
+ await upGig(id,{last_contact_date:day(),next_follow_up:g.next_follow_up&&g.next_follow_up>day()?g.next_follow_up:day(3),stage:g.stage=='new_lead'?'contacted':g.stage},'message','Message sent on WhatsApp');render()}
+async function delGig(id){if(!confirm('Delete this gig and its history?'))return;try{await ok(sb.from('gigs').delete().eq('id',id));GG=GG.filter(g=>g.id!=id);closeS();render()}catch(e){}}
+
+/* ---------- clients ---------- */
+function clientsV(){return `<h1>Clients</h1>${CL.map(c=>{const gs=GG.filter(g=>g.client_id==c.id),w=gs.filter(g=>g.stage=='won').reduce((a,g)=>a+ +g.value,0);
+ return `<div class="c row" onclick="openClient('${c.id}')"><span class="ti t1">${esc(((c.name||'?').trim()[0]||'?').toUpperCase())}</span><div style="flex:1"><div class="r"><b>${esc(c.name)}</b>${gs.filter(g=>g.stage=='won').length>1?'<span class="tag">Repeat</span>':''}</div><div class="m">${gs.length} gigs · ${fmt(w)} won${c.whatsapp?' · '+esc(c.whatsapp):''}</div></div></div>`}).join('')||'<div class="c e"><b>No clients yet.</b><br>Add a client or create a gig and add the client there.</div>'}<button class="a" onclick="newClient()">+ New Client</button>`}
+function clientForm(c){c=c||{};return `<label>Name</label><input id="k1" value="${esc(c.name||'')}"><label>WhatsApp (07…)</label><input id="k2" inputmode="tel" value="${esc(c.whatsapp||'')}">
+ <label>Email</label><input id="k3" type="email" value="${esc(c.email||'')}"><label>Company</label><input id="k4" value="${esc(c.company||'')}"><label>Notes</label><textarea id="k5">${esc(c.notes||'')}</textarea>`}
+function newClient(){sheet(`<h1>New client</h1>${clientForm()}<button class="a" onclick="saveClient()">Save client</button>`)}
+async function saveClient(id){const n=v('k1').trim();if(!n)return toast('Enter a name.');const p={name:n,whatsapp:v('k2').trim(),phone:v('k2').trim(),email:v('k3').trim(),company:v('k4').trim(),notes:v('k5')};
+ try{if(id){const c=await ok(sb.from('clients').update(p).eq('id',id).select().single());CL=CL.map(x=>x.id==id?c:x)}else CL.push(await ok(sb.from('clients').insert(p).select().single()));
+ CL.sort((a,b)=>a.name.localeCompare(b.name));closeS();render()}catch(e){}}
+function openClient(id){const c=cl(id),gs=GG.filter(g=>g.client_id==id),w=gs.filter(g=>g.stage=='won');
+ sheet(`<div class="r"><h1 style="margin:0">${esc(c.name)}</h1><button onclick="closeS()">Close</button></div>
+ <div class="c"><div class="m">Won value</div><div class="big">${fmt(w.reduce((a,g)=>a+ +g.value,0))}</div><div class="m">${gs.length} gigs · ${w.length} won</div></div>
+ ${gs.map(g=>`<div class="c" onclick="openGig('${g.id}')"><b>${esc(g.title)}</b> <span class="tag">${SN[g.stage]}</span><div class="m">${fmt(g.value)}</div></div>`).join('')}
+ ${clientForm(c)}<button class="a" onclick="saveClient('${id}')">Save changes</button><button class="a d" style="background:none" onclick="delClient('${id}')">Delete client</button>`)}
+async function delClient(id){if(!confirm('Delete this client? Their gigs stay but lose the client link.'))return;try{await ok(sb.from('clients').delete().eq('id',id));CL=CL.filter(c=>c.id!=id);GG=GG.map(g=>g.client_id==id?{...g,client_id:null}:g);closeS();render()}catch(e){}}
+
+/* ---------- more ---------- */
+function moreV(){const lost={};GG.filter(g=>g.stage=='lost').forEach(g=>lost[g.lost_reason]=(lost[g.lost_reason]||0)+1);
+ return `<h1>More</h1>
+ ${mrow('store','t1',esc(B.name),esc(U.email)+' · '+esc(B.currency)+' · tap to edit','editBiz()')}
+ ${mrow('clip','t5','Paste many leads','Add up to 100 leads at once','bulkSheet()')}
+ ${mrow('doc','t3','My proposal template','Used for Upwork proposals','editProp()')}
+ ${mrow('target','t4','Daily outreach target','Currently '+esc(LS.g('gt_daily',10))+' messages a day','setDaily()')}
+ <div class="c row">${tile('bars','t5')}<div style="flex:1"><b>Lost gigs by reason</b><div class="m">${Object.entries(lost).map(([k,n])=>esc(k)+': '+n).join('<br>')||'None yet.'}</div></div></div>
+ <div class="c"><div class="row">${tile('info','t1')}<b>About Gig Tracker</b></div><div class="m" style="margin-top:8px">Gig Tracker helps freelancers and small sellers in Uganda turn conversations into customers. Track leads, follow up on WhatsApp, move gigs through your pipeline, and see which customers are worth the most.</div>
+ <div class="m" style="margin-top:8px">Built by Bilungi Ponsiano Kelton, Kampala.</div>
+ <div class="r"><a href="https://wa.me/256704432531" target="_blank" rel="noopener"><button class="p ib" type="button">${ic('chat',16)} WhatsApp us</button></a><a href="mailto:ponsiano.webdev@gmail.com"><button type="button">Email us</button></a></div></div>
+ <div class="c row">${tile('spark','t3')}<div style="flex:1"><b>Coming next</b><div class="m">Money and payments, quotes, invoices with PDF, reports and Pro plan.</div></div></div>
+ ${mrow('out','t1','Sign out','','sb.auth.signOut()')}`}
+
+/* ---------- v2 additions ---------- */
+const guard=f=>async function(...a){if(guard.b)return;guard.b=1;try{return await f.apply(this,a)}finally{guard.b=0}};
+['doAuth','saveOb','saveNewGig','saveGig','saveClient','bulkAdd','copyProp','waGig','saveBiz'].forEach(n=>{if(window[n])window[n]=guard(window[n])});
+const LS={g(k,d){try{return localStorage.getItem(k)||d}catch(e){return d}},s(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+function outreach(){const t=+LS.g('gt_daily',10)||10,n=AC.filter(a=>a.kind=='message'&&new Date(a.created_at).toLocaleDateString()==new Date().toLocaleDateString()).length,p=Math.min(100,Math.round(n/t*100));
+ return `<div class="c" onclick="setDaily()"><div class="r"><span class="row">${tile('target','t1')}<b>Today's outreach</b></span><span class="m">${n} / ${t} messages</span></div><div style="height:8px;background:var(--bd);border-radius:6px;margin-top:8px;overflow:hidden"><i style="display:block;height:100%;width:${p}%;background:var(--ac)"></i></div><div class="m" style="margin-top:6px">${n>=t?'Target reached. Great work.':'Tap to change your daily target.'}</div></div>`}
+function setDaily(){const x=prompt('Messages to send per day?',LS.g('gt_daily',10));if(x&&+x>0){LS.s('gt_daily',String(Math.round(+x)));render()}}
+const PROP="Hi {client}, I read your job post for \"{title}\" and I can deliver it. I build clean, fast, mobile-friendly websites and can share similar work. When would you like to start?";
+function propFor(g){const c=cl(g.client_id);return LS.g('gt_prop',PROP).split('{client}').join(c?c.name.split(' ')[0]:'there').split('{title}').join(g.title)}
+function editProp(){sheet(`<h1>My proposal template</h1><div class="m">Use {client} and {title}.</div><textarea id="tp" style="min-height:160px">${esc(LS.g('gt_prop',PROP))}</textarea><button class="a" onclick="LS.s('gt_prop',v('tp'));toast('Template saved');closeS()">Save template</button>`)}
+async function copyProp(id){const g=gg(id),t=v('d8');try{await navigator.clipboard.writeText(t);toast('Proposal copied. Paste it into Upwork.')}catch(e){prompt('Copy this proposal:',t)}
+ await upGig(id,{last_contact_date:day(),next_follow_up:day(3),stage:g.stage=='new_lead'?'contacted':g.stage},'message','Proposal copied for Upwork');render()}
+function bulkSheet(){sheet(`<h1>Paste many leads</h1><div class="m">One per line: name, phone, what you'd offer (optional). Up to 100 lines.</div><textarea id="bk" style="min-height:180px" placeholder="Mama Rose Salon, 0772123456, website&#10;Kato Auto Spares, 0701234567"></textarea><button class="a" onclick="bulkAdd()">Add all</button>`)}
+async function bulkAdd(){const rows=v('bk').split('\n').map(l=>l.split(',').map(x=>x.trim())).filter(r=>r[0]).slice(0,100);if(!rows.length)return toast('Paste at least one line.');
+ try{const cs=await ok(sb.from('clients').insert(rows.map(r=>({name:r[0],whatsapp:r[1]||null,phone:r[1]||null}))).select());
+  const gs=await ok(sb.from('gigs').insert(cs.map((c,i)=>({client_id:c.id,title:(rows[i][2]||'Website')+' for '+c.name,lead_source:'WhatsApp',next_action:'Contact'}))).select());
+  await ok(sb.from('activities').insert(gs.map(g=>({gig_id:g.id,client_id:g.client_id,kind:'created',note:'Lead created (bulk)'}))));
+  CL=CL.concat(cs).sort((a,b)=>a.name.localeCompare(b.name));GG=gs.concat(GG);await refreshAct();closeS();tab='gigs';gf='active';render();toast(cs.length+' leads added')}catch(e){}}
+function editBiz(){sheet(`<h1>Business details</h1><label>Name</label><input id="b1" value="${esc(B.name)}"><label>WhatsApp</label><input id="b2" inputmode="tel" value="${esc(B.whatsapp||'')}"><label>Currency</label><select id="b3">${opts(['UGX','KES','TZS','RWF','USD'],B.currency)}</select><button class="a" onclick="saveBiz()">Save</button>`)}
+async function saveBiz(){if(!v('b1').trim())return toast('Enter a name.');try{B=await ok(sb.from('businesses').update({name:v('b1').trim(),whatsapp:v('b2').trim(),phone:v('b2').trim(),currency:v('b3')}).eq('id',B.id).select().single());closeS();render()}catch(e){}}
+async function forgot(){const e=v('em').trim();if(!e)return toast('Type your email first, then tap Forgot password.');const r=await sb.auth.resetPasswordForEmail(e,{redirectTo:location.origin+location.pathname});toast(r.error?r.error.message:'Check your email for a reset link.')}
+function recoveryView(){$('#app').innerHTML=`<img class="logo" src="icon-192.png" alt=""><h1 style="text-align:center">Set a new password</h1><label>New password (6+ characters)</label><input id="np" type="password" autocomplete="new-password"><button class="a" onclick="setPw()">Save password</button>`}
+async function setPw(){const p=v('np');if(p.length<6)return toast('Use 6+ characters.');const r=await sb.auth.updateUser({password:p});if(r.error)return toast(r.error.message);recov=false;toast('Password updated.');boot()}
+
+sb.auth.getSession().then(({data})=>{if(!data.session)authView('in')});
+if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+</script></body></html>
